@@ -10,7 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles. HasApiTokens;
+    use Notifiable, HasRoles, HasApiTokens;
 
     // Which attributes can be mass‑assigned
     protected $fillable = [
