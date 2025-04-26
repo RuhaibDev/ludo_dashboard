@@ -8,18 +8,15 @@ class CreatePlayersTable extends Migration
 {
     public function up()
     {
-        Schema::create('players', function (Blueprint $table) {
-            $table->id();                           // auto-increment primary key
-            $table->uuid('uuid')->unique();        // our unique ID we send back
-            $table->string('name');                // player name
-            $table->string('email')->unique();     // player email
-            $table->string('type');                // “facebook”, “google”, “guest”, etc.
-            $table->timestamps();                  // created_at & updated_at
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('signup_type');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('players');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('signup_type');
+        });
     }
 }

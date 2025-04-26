@@ -11,12 +11,15 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use Notifiable, HasRoles, HasApiTokens;
+    const ADMIN_ROLE = 'admin';
+    const USER_ROLE = 'user';
 
     // Which attributes can be mass‑assigned
     protected $fillable = [
         'name',
         'email',
         'password',
+        'signup_type'
     ];
 
     // Hide these when serializing
