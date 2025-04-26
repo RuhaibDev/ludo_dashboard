@@ -8,22 +8,13 @@ class EnvironmentLoader
 {
     public static function load(): void
     {
-        $host = $_SERVER['DB_HOST'] ?? '.env.dev'; 
-        switch ($host) {
-            case 'dev':
-                $envFile = '.env.dev';
-                break;
-            case 'staging':
-                $envFile = '.env.stage';
-                break;
-            case 'production':
-                $envFile = '.env.production';
-                break;
-            default:
-                $envFile = '.env.dev';
-                break;
-        }   
-        
+        $host = $_SERVER['DB_HOST'] ?? '.env.dev';
+        $envFile = match ($host) {
+            'staging' => '.env.stage',
+            'production' => '.env.production',
+             default => '.env.dev',
+        };
+
         if (file_exists(__DIR__.'/../../'.$envFile)) {
             $dotenv = Dotenv::createImmutable(__DIR__.'/../../', $envFile);
             $dotenv->load();
