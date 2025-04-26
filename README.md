@@ -6,8 +6,11 @@
         <ul>
             <li> php artisan migrate </li>
             <li> php artisan db:seed </li>
-            <li> php artisan serve</li>
+            <li> php artisan serve </li>
         </ul>
     </li>
 </ul>
-<h1>To run project normally, run php artisan serve </h1>
+<ul>
+    <li><h3>To run project normally, run php artisan serve </h3></li>
+    <li><h3>To view the apis go to /request-docs </h3></li>
+</ul>
