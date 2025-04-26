@@ -4,7 +4,8 @@
     <li>composer install (make sure composer is installed) and php version is 8</li>
     <li>inside terminal  run these steps
         <ul>
-            <li> php artisan migrate and follow the onscreen instructions</li>
+            <li> php artisan migrate </li>
+            <li> php artisan db:seed </li>
             <li> php artisan serve</li>
         </ul>
     </li>
