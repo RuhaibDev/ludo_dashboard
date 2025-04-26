@@ -6,11 +6,8 @@ use App\Models\User;
 
 class UserRepository implements  UserRepositoryInterface
 {
-
-    public function createUser(array $data): User
+    public function createUser(array $data)
     {
-       $user = User::query()->create($data);
-       $user->assignRole(User::USER_ROLE);
-       return $user;
+        return User::query()->create($data);
     }
 }
