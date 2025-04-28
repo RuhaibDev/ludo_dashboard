@@ -10,4 +10,9 @@ class UserRepository implements  UserRepositoryInterface
     {
         return User::query()->create($data);
     }
+
+    public function userLogin(string $email)
+    {
+        return User::query()->where('email', $email)->firstOrFail();
+    }
 }
